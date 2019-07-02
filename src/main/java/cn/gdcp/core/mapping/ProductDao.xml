@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="cn.gdcp.core.mapping.ProductDao">
+	<select id="findHotProducts"  resultType="product">
+	   <!--  select * from tab_product where is_hot = 1 limit 12 order by pid -->
+	   select * from tab_product where is_hot = 1 AND pflag = 1 ORDER BY pid ASC LIMIT 0,12   
+	</select>
+
+	<select id="findNewProducts"  resultType="product">
+	   select * from tab_product where  pflag = 1 ORDER BY pid ASC LIMIT 0,12    
+	</select>
+	
+</mapper>
