@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import cn.gdcp.core.po.Page;
 import cn.gdcp.core.po.Product;
 import cn.gdcp.core.service.ProductService;
 
@@ -35,11 +36,16 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/findAllProductByCid")
-	public String findAllProductByCid(String cid ,Model model) {
-//		List<Product> hotProducts = this.productService.findHotProducts();
-//		System.out.println(cid);
-		return "redirect:/login.jsp";
+	public String findAllProductByCid(String cid , String currPageNO , HttpSession session) {
+		int currPageNOBase;
+		if(currPageNO==null){
+			currPageNOBase = 1;
+		}else{
+			currPageNOBase = Integer.parseInt(currPageNO);
+		}
+		Page<Product> pageBean = this.productService.findAllProductByCid(cid , currPageNOBase);
+		session.setAttribute("PAGE_BEAN", pageBean);
+		return "redirect:/product_list.jsp";
 	}
-	
 	
 }
