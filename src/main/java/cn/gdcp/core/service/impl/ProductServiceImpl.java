@@ -40,7 +40,7 @@ public class ProductServiceImpl implements ProductService {
 		int allPageNO = allNum/perNum;
 		
 		/*int currPageNO = */
-		List<Product> products= this.productDao.findAllProductByCid(cid , currPageNO*6+1 , currPageNO*6+6);		
+		List<Product> products= this.productDao.findAllProductByCid(cid , currPageNO*6+1 , 6);		
 		System.out.println(products);
 		page.setList(products);
 		page.setCurrPageNO(currPageNO);

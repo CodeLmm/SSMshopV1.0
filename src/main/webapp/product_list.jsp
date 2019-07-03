@@ -95,7 +95,7 @@ body {
 						<li class="active"><a href="#">${i}</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="${pageContext.request.contextPath}/findAllProductByCid/cid=${param.cid}&currPageNO=${i}">${i}</a></li>
+						<li><a href="${pageContext.request.contextPath}/findAllProductByCid?cid=${param.cid}&currPageNO=${i}">${i}</a></li>
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>

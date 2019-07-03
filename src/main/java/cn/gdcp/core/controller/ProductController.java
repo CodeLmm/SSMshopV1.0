@@ -41,7 +41,7 @@ public class ProductController {
 		
 		int currPageNOBase;
 		if(currPageNO==null){
-			currPageNOBase = 0;
+			currPageNOBase = 1;
 		}else{
 			currPageNOBase = Integer.parseInt(currPageNO);
 		}
