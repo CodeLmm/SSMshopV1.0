@@ -78,7 +78,7 @@ body {
 				<%--如果当前页号不为1，就可用--%>
 				<c:otherwise>
 					<li>
-						<a href="${pageContext.request.contextPath}/product/findAllProductByCid/cid=${param.cid}&currPageNO=${PAGE_BEAN.currPageNO-1}" aria-label="Previous">
+						<a href="${pageContext.request.contextPath}/findAllProductByCid/cid=${param.cid}&currPageNO=${PAGE_BEAN.currPageNO-1}" aria-label="Previous">
 							<span aria-hidden="true">&laquo;</span>
 						</a>
 					</li>
@@ -95,7 +95,7 @@ body {
 						<li class="active"><a href="#">${i}</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="${pageContext.request.contextPath}/product/findAllProductByCid/cid=${param.cid}&currPageNO=${i}">${i}</a></li>
+						<li><a href="${pageContext.request.contextPath}/findAllProductByCid/cid=${param.cid}&currPageNO=${i}">${i}</a></li>
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
@@ -113,7 +113,7 @@ body {
 				<%--如果当前页号为不为最后一页，就可用--%>
 				<c:otherwise>
 					<li>
-						<a href="${pageContext.request.contextPath}/product/findAllProductByCid&cid=${param.cid}&currPageNO=${PAGE_BEAN.currPageNO+1}" aria-label="Next"> 
+						<a href="${pageContext.request.contextPath}/findAllProductByCid&cid=${param.cid}&currPageNO=${PAGE_BEAN.currPageNO+1}" aria-label="Next"> 
 							<span aria-hidden="true">&raquo;</span>
 						</a>
 					</li>

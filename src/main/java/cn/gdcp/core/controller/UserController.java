@@ -28,11 +28,11 @@ public class UserController {
 			if (isRegister) {
 				return "redirect:/register_ok.jsp";
 			} else {
-				model.addAttribute("内部错误，请联系管理员！");
+				model.addAttribute("鍐呴儴閿欒锛岃鑱旂郴绠＄悊鍛橈紒");
 				return "redirect:/fail.jsp";
 			}
 		} catch (Throwable e) {
-			model.addAttribute("内部错误，请联系管理员！");
+			model.addAttribute("鍐呴儴閿欒锛岃鑱旂郴绠＄悊鍛橈紒");
 			return "redirect:/fail.jsp";
 		}
 	}
@@ -48,11 +48,11 @@ public class UserController {
 		try {
 			user = this.userService.login(username, password);
 			if(user==null) {
-	    		model.addAttribute("LOGIN_FAIL", "登陆失败了,请重新登陆");
+	    		model.addAttribute("LOGIN_FAIL", "鐧婚檰澶辫触浜�,璇烽噸鏂扮櫥闄�");
 	    		return "forward:toLogin";
 	    	}
 	    	if(session.getAttribute("USER")!=null) {
-	    		//跳转到index页面
+	    		//璺宠浆鍒癷ndex椤甸潰
 	    	}else {
 	    		session.setAttribute("USER", user);
 	    	}
@@ -60,7 +60,7 @@ public class UserController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-		return "redirect:/product/findHotNewProduct";
+		return "redirect:/findHotNewProduct";
 	}
     
     @RequestMapping("logout")

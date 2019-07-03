@@ -50,11 +50,11 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav" id="ul">
-				     <li><a href="${pageContext.request.contextPath}/product/findAllProductByCid?cid=1">手机数码</a></li>
-				     <li><a href="${pageContext.request.contextPath}/product/findAllProductByCid?cid=2">电脑平板</a></li>
-				     <li><a href="${pageContext.request.contextPath}/product/findAllProductByCid?cid=3">女士服装</a></li>
-				     <li><a href="${pageContext.request.contextPath}/product/findAllProductByCid?cid=4">男士服装</a></li> 
-				     <li><a href="${pageContext.request.contextPath}/product/findAllProductByCid?cid=4">鞋帽箱包</a></li> 
+				     <li><a href="${pageContext.request.contextPath}/findAllProductByCid?cid=1">手机数码</a></li>
+				     <li><a href="${pageContext.request.contextPath}/findAllProductByCid?cid=2">电脑平板</a></li>
+				     <li><a href="${pageContext.request.contextPath}/findAllProductByCid?cid=3">女士服装</a></li>
+				     <li><a href="${pageContext.request.contextPath}/findAllProductByCid?cid=4">男士服装</a></li> 
+				     <li><a href="${pageContext.request.contextPath}/findAllProductByCid?cid=5">鞋帽箱包</a></li> 
 				</ul>
 				<form class="navbar-form navbar-right" role="search">
 					<div class="form-group">

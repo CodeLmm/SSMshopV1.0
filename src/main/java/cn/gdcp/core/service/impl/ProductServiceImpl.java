@@ -35,11 +35,13 @@ public class ProductServiceImpl implements ProductService {
 		int cid = Integer.parseInt(baseCid);
 		Page page = new Page();
 		int allNum = this.productDao.findProductNumByCid(cid);
+		System.out.println(allNum);
 		int perNum = 6 ;
 		int allPageNO = allNum/perNum;
 		
 		/*int currPageNO = */
 		List<Product> products= this.productDao.findAllProductByCid(cid , currPageNO*6+1 , currPageNO*6+6);		
+		System.out.println(products);
 		page.setList(products);
 		page.setCurrPageNO(currPageNO);
 		page.setAllPageNO(allPageNO);

@@ -3,6 +3,7 @@ package cn.gdcp.core.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.codehaus.jackson.io.SegmentedStringWriter;
@@ -17,35 +18,37 @@ import cn.gdcp.core.po.Product;
 import cn.gdcp.core.service.ProductService;
 
 @Controller
-@RequestMapping("/product")
+
 public class ProductController {
 	@Autowired
     private ProductService productService;
 	
 	@RequestMapping("/findHotNewProduct")
-	public String findHotNewProduct(HttpSession session) {
+	public String findHotNewProduct(HttpServletRequest request) {
 		System.out.println(1);
 		List<Product> hotProducts = this.productService.findHotProducts();
 		List<Product> newProducts = this.productService.findNewProducts();
-		session.setAttribute("HOT_PRODUCT_LIST",hotProducts);
-		session.setAttribute("NEW_PRODUCT_LIST", newProducts);
+		request.setAttribute("HOT_PRODUCT_LIST",hotProducts);
+		request.setAttribute("NEW_PRODUCT_LIST", newProducts);
 		/*redirectAttributes.addFlashAttribute("HOT_PRODUCT_LIST",hotProducts);
 		redirectAttributes.addFlashAttribute("NEW_PRODUCT_LIST", newProducts);*/
-		return "redirect:/index.jsp";
+		return "index";
 //		return "redirect:/product/findHotNewProduct";
 	}
 	
 	@RequestMapping("/findAllProductByCid")
-	public String findAllProductByCid(String cid , String currPageNO , HttpSession session) {
+	public String findAllProductByCid(String cid , String currPageNO , HttpServletRequest request) {
+		
 		int currPageNOBase;
 		if(currPageNO==null){
-			currPageNOBase = 1;
+			currPageNOBase = 0;
 		}else{
 			currPageNOBase = Integer.parseInt(currPageNO);
 		}
+		System.out.println(currPageNOBase);
 		Page<Product> pageBean = this.productService.findAllProductByCid(cid , currPageNOBase);
-		session.setAttribute("PAGE_BEAN", pageBean);
-		return "redirect:/product_list.jsp";
+		request.setAttribute("PAGE_BEAN", pageBean);
+		return "product_list";
 	}
 	
 }
