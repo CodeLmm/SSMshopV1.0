@@ -14,6 +14,8 @@ public interface ProductService {
 	public int findProductNumByCid(int cid);
 
 	public Page<Product> findAllProductByCid(String cid , int currPageNO);
+
+	public Product findProductByPid(int pid);
 	
 	
 

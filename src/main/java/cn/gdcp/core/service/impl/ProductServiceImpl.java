@@ -49,6 +49,11 @@ public class ProductServiceImpl implements ProductService {
 		
 		return page;
 	}
+
+	@Override
+	public Product findProductByPid(int pid) {
+		return this.productDao.findProductByPid(pid);
+	}
 	
 
 }

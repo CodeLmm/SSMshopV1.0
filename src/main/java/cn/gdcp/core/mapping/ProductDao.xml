@@ -11,18 +11,41 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="findNewProducts" resultType="product">
-		select * from tab_product where pflag = 1 ORDER BY pid ASC LIMIT 0,12
+		select * from
+		tab_product where pflag = 1 ORDER BY pid ASC LIMIT 0,12
 	</select>
 
 	<select id="findProductNumByCid" parameterType="Integer"
 		resultType="Integer">
 		select count(*) from tab_product where cid = #{cid}
 	</select>
-	
+
 	<select id="findAllProductByCid" parameterType="Integer"
 		resultType="product">
 		select * from tab_product where cid = #{cid} ORDER BY pid
 		ASC LIMIT #{i},#{j}
 	</select>
-	
+
+	<select id="findProductByPid" parameterType="Integer"
+		resultMap="findProductByPidResultMap">
+		select *
+		from tab_category c ,
+		tab_product p
+		where c.cid =
+		c.pid
+		and p.pid = #{pid}
+
+	</select>
+
+	<resultMap type="product" id="findProductByPidResultMap">
+		<id column='pid' property="pid" />
+		<result column='pname' property="pname" />
+		<result column='market_price' property="market_price" />
+		<result column='shop_price' property="shop_price" />
+		<result column='pimage' property="pimage" />
+		<association property="category" javaType="category">
+			<id column='cid' property="cid" />
+			<result column='cname' property="canme" />
+		</association>
+	</resultMap>
 </mapper>

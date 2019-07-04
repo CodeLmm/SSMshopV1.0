@@ -40,11 +40,11 @@ body {
 			<c:when test="${!empty PAGE_BEAN.list}">
 				<c:forEach var="product" items="${PAGE_BEAN.list}">
 					<div class="col-md-2">
-						<a href="${pageContext.request.contextPath}/product/findProductByPid&pid=${product.pid}"> 
+						<a href="${pageContext.request.contextPath}/findProductByPid?pid=${product.pid}"> 
 							<img src="${product.pimage}" width="170" height="170" style="display: inline-block;">
 						</a>
 						<p>
-							<a href="${pageContext.request.contextPath}/product/findProductByPid&pid=${product.pid}" style='color: green'>
+							<a href="${pageContext.request.contextPath}/findProductByPid?pid=${product.pid}" style='color: green'>
 								${product.pname}
 							</a>
 						</p>

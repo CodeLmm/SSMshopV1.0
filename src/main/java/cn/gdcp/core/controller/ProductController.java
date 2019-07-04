@@ -51,4 +51,11 @@ public class ProductController {
 		return "product_list";
 	}
 	
+	@RequestMapping("/findProductByPid")
+	public String findProductByPid(int pid , Model model){
+		Product product = this.productService.findProductByPid(pid);
+	    model.addAttribute("PRODUCT", product);
+		return "product_info";
+	}
+	
 }

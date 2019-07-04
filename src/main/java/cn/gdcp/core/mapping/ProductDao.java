@@ -18,4 +18,6 @@ public interface ProductDao {
 
 	public List<Product> findAllProductByCid(@Param("cid")int cid, @Param("i")int i, @Param("j") int j);
 
+	public Product findProductByPid(int pid);
+
 }

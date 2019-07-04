@@ -42,5 +42,5 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
         <property name="basePackage" value="cn.gdcp.core.mapping" />  
     </bean>  
-  
+    
 </beans>
