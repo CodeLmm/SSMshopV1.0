@@ -32,7 +32,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from tab_category c ,
 		tab_product p
 		where c.cid =
-		c.pid
+		p.cid
 		and p.pid = #{pid}
 
 	</select>
@@ -45,7 +45,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column='pimage' property="pimage" />
 		<association property="category" javaType="category">
 			<id column='cid' property="cid" />
-			<result column='cname' property="canme" />
+			<result column='cname' property="cname" />
 		</association>
 	</resultMap>
 </mapper>
